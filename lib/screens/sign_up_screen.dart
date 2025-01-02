@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:one_health/screens/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -45,6 +46,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     labelText: "Email Address",
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.email),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly, // Allow only digits
+                    LengthLimitingTextInputFormatter(
+                        3), // Limit input to 3 digits
+                    FilteringTextInputFormatter.allow(RegExp(
+                        r'^([1-9][0-9]{0,1}|1[01][0-9]|120)$')), // Age range 1-120
+                  ],
+                  decoration: const InputDecoration(
+                    labelText: "Age",
+                    hintText: "Enter your age (1-120)",
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.calendar_month),
                   ),
                 ),
               ),

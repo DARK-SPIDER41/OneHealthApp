@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_health/additions/patient_History.dart';
 import 'package:one_health/screens/appointment_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,6 +52,61 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PatientHistory()),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF7165D6),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          spreadRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.history,
+                            color: Color(0xFF7165D6),
+                            size: 35,
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                        const Text(
+                          "Your History",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          "view all your Records",
+                          style: TextStyle(
+                            color: Colors.white54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
                   onTap: () {},
                   child: Container(
                     padding: const EdgeInsets.all(20),
@@ -75,14 +131,14 @@ class HomeScreen extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                           child: const Icon(
-                            Icons.add,
+                            Icons.chat_bubble_outline,
                             color: Color(0xFF7165D6),
                             size: 35,
                           ),
                         ),
                         const SizedBox(height: 30),
                         const Text(
-                          "Clinic Visit",
+                          "Med-Bot",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -91,59 +147,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         const Text(
-                          "Make an appointment",
+                          "What’s bothering you today?",
                           style: TextStyle(
                             color: Colors.white54,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 6,
-                          spreadRadius: 4,
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFF0EEFA),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.home_filled,
-                            color: Color(0xFF7165D6),
-                            size: 35,
-                          ),
-                        ),
-                        const SizedBox(height: 30),
-                        const Text(
-                          "Home Visit",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        const Text(
-                          "Call the doctor home",
-                          style: TextStyle(
-                            color: Colors.black54,
                           ),
                         ),
                       ],
