@@ -53,7 +53,7 @@ class MessagesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 300,
+                    width: 250,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: TextFormField(

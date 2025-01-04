@@ -3,7 +3,7 @@ import 'package:one_health/additions/patient_History.dart';
 import 'package:one_health/screens/appointment_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  List symptoms = [
+  final List<String> symptoms = [
     "Temperature",
     "Snuffle",
     "Fever",
@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     "Cold",
   ];
 
-  List imgs = [
+  final List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
     "doctor3.jpg",
@@ -22,6 +22,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.only(top: 40),
@@ -59,6 +62,8 @@ class HomeScreen extends StatelessWidget {
                     );
                   },
                   child: Container(
+                    width: screenWidth * 0.4,
+                    height: screenHeight * 0.25,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: const Color(0xFF7165D6),
@@ -86,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                             size: 35,
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
                         const Text(
                           "Your History",
                           style: TextStyle(
@@ -97,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         const Text(
-                          "view all your Records",
+                          "View all your Records",
                           style: TextStyle(
                             color: Colors.white54,
                           ),
@@ -109,6 +114,7 @@ class HomeScreen extends StatelessWidget {
                 InkWell(
                   onTap: () {},
                   child: Container(
+                    width: screenWidth * 0.4,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: const Color(0xFF7165D6),
@@ -136,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                             size: 35,
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
                         const Text(
                           "Med-Bot",
                           style: TextStyle(
@@ -221,22 +227,25 @@ class HomeScreen extends StatelessWidget {
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                crossAxisSpacing: 15,
+                mainAxisSpacing: 15,
+                childAspectRatio: 0.8,
               ),
-              itemCount: 4,
+              itemCount: imgs.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AppointmentScreen(),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AppointmentScreen(),
+                      ),
+                    );
                   },
                   child: Container(
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -249,12 +258,13 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CircleAvatar(
-                          radius: 35,
+                          radius: 30,
                           backgroundImage: AssetImage("images/${imgs[index]}"),
                         ),
+                        const SizedBox(height: 8),
                         const Text(
                           "Dr. Doctor Name",
                           style: TextStyle(
@@ -269,13 +279,14 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.black45,
                           ),
                         ),
-                        const Row(
-                          mainAxisSize: MainAxisSize.min,
+                        const SizedBox(height: 4),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.star,
                               color: Colors.amber,
+                              size: 16,
                             ),
                             Text(
                               "4.9",
@@ -291,6 +302,7 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
+            SizedBox(height: screenHeight * 0.05), // Extra space at the bottom
           ],
         ),
       ),

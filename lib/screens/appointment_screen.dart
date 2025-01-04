@@ -281,7 +281,7 @@ class AppointmentScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(15),
-        height: 130,
+        height: 140,
         decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
