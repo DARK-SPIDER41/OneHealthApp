@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_health/additions/patient_History.dart';
 import 'package:one_health/screens/appointment_screen.dart';
+import 'package:one_health/additions/chatbot_page.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<String> symptoms = [
@@ -58,7 +59,8 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PatientHistory()),
+                      MaterialPageRoute(
+                          builder: (context) => const PatientHistory()),
                     );
                   },
                   child: Container(
@@ -112,7 +114,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ChatbotPage()));
+                  },
                   child: Container(
                     width: screenWidth * 0.4,
                     padding: const EdgeInsets.all(20),
@@ -280,9 +285,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(
                               Icons.star,
                               color: Colors.amber,

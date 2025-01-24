@@ -16,7 +16,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
   int _selectedIndex = 0;
   final _screens = [
     HomeScreen(),
-    MessagesScreen(),
+    //MessagesScreen(),
     const ScheduleScreen(),
     const SettingScreen(),
   ];
@@ -46,11 +46,11 @@ class _NavBarRootsState extends State<NavBarRoots> {
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled), label: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  CupertinoIcons.chat_bubble_text_fill,
-                ),
-                label: "Messages"),
+            // BottomNavigationBarItem(
+            //     icon: Icon(
+            //       CupertinoIcons.chat_bubble_text_fill,
+            //     ),
+            //     label: "Messages"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.calendar_month_outlined), label: "Schedule"),
             BottomNavigationBarItem(

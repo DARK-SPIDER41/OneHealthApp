@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:one_health/screens/home_screen.dart';
 import 'package:one_health/screens/login_screen.dart';
 import 'package:one_health/screens/sign_up_screen.dart';
-import 'package:one_health/widgets/navbar_roots.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

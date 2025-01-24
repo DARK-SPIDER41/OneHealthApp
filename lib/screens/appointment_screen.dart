@@ -266,7 +266,7 @@ class AppointmentScreen extends StatelessWidget {
                       ),
                     ),
                     title: const Text(
-                      "New York, Medical Center",
+                      "Kallooppara, Medical Center",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -304,7 +304,7 @@ class AppointmentScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "\$100",
+                  "\₹500",
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 20,
